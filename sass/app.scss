@@ -1,0 +1,114 @@
+@import 'reset';
+@import 'variables';
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+body.landing {
+    background-color: $primary;
+
+    .presentation {
+        max-width: $center;
+        height: 100vh;
+        margin: auto;
+        justify-content: center;
+        flex-direction: column;
+        display: flex;
+    }
+    .presentation .content {
+        align-items: flex-start;
+        display: flex;
+    }
+    .presentation .brand {
+        margin-top: 67px;
+        margin-right: 87px;
+        flex-direction: column;
+        align-items: flex-start;
+        display: flex;
+    }
+    .presentation .brand h2 {
+        font-size: 36px;
+        font-weight: normal;
+        margin-top: 8px;
+        color: $text-purple-base;
+        line-height: 46px;
+        grid-area: brand-text;
+    }
+    
+    .presentation .footer {
+        margin-top: 87px;
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+    }
+    .presentation .footer .button {
+        background-color: $purple-lighten;
+        font: 700 1.5rem 'Archivo', sans-serif;
+        padding: 32px 64px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        text-decoration: none;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        transition: background-color 150ms linear;
+    }
+    .presentation .footer .button:hover {
+        background-color: $purple;
+    }
+    .presentation .footer .options {
+        grid-template-areas: '. .';
+        grid-gap: 1rem;
+        display: grid;
+    }
+    .presentation .footer .button.button-green {
+        background-color: $green;
+    }
+    .presentation .footer .button.button-green:hover {
+        background-color: $green-darken;
+    }
+    .presentation .footer .button:link,
+    .presentation .footer .button:active,
+    .presentation .footer .button:visited {
+        color: #fff;
+        text-decoration: none;
+    }
+    .presentation .footer .button img {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 1rem;
+    }
+    .presentation .footer .total-connections {
+        font-size: 12px;
+        color: $text-purple-base;
+        align-items: center;
+        display: flex;
+    }
+    .presentation .footer .total-connections img {
+        margin-left: 10px;
+    }
+    
+    @media (max-width: 1200px) {
+        .presentation .content {
+            flex-direction: column;
+            align-items: center;
+        }
+        .presentation .footer {
+            flex-direction: column;
+        }
+        .presentation .footer .total-connections {
+            margin-top: 2.5rem;
+        }
+    }
+}
+
+body.create-account {
+    background-color: $gray;
+    .header {
+        background-color: $purple;
+        height: 368px;
+        margin: 0;
+    }
+}
