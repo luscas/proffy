@@ -1,17 +1,33 @@
 @import 'reset';
 @import 'variables';
 
+.switch-wrapper {
+    position: relative;
+    & > div {
+        position: absolute;
+    }
+}
+
 body {
     font-family: 'Poppins', sans-serif;
 }
 
-body.landing {
-    background-color: $primary;
+@mixin container {
+    max-width: $center;
+    margin: 0 auto;
+}
 
+.container {
+    @include container;
+}
+
+.landing {
+    background-color: $primary;
+    width: 100vw;
+    height: 100vh;
     .presentation {
-        max-width: $center;
+        @include container;        
         height: 100vh;
-        margin: auto;
         justify-content: center;
         flex-direction: column;
         display: flex;
@@ -104,11 +120,48 @@ body.landing {
     }
 }
 
-body.create-account {
+.create-account {
     background-color: $gray;
+    width: 100vw;
+    height: 100vh;
     .header {
         background-color: $purple;
         height: 368px;
-        margin: 0;
+        .container {
+            position: relative;
+        }
+        .navbar {
+            width: 100%;
+            position: absolute;
+            top: 18px;
+            left: 0;
+            justify-content: space-between;
+            display: flex;
+        }
+        .jumbotron {
+            max-width: 736px;
+            margin: 0 auto;
+            position: relative;
+            top: 80px;
+            h1 {
+                font: bold 36px 'Archivo', sans-serif;
+                line-height: 42px;
+                color: #fff;
+            }
+            p {
+                font-size: 16px;
+                color: $text-purple-base;
+                margin-top: 24px;
+            }
+        }
+    }
+
+    .card {
+        background-color: #fff;
+        width: 736px;
+        border: 1px solid #E6E6F0;
+        border-radius: 8px;
+        margin: -63px auto 0 auto;
+        padding: 56px 64px;
     }
 }
