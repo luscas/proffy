@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './sass/app.scss'
 
 function App() {
-    return (
+	return (
 		<div className="landing">
 			<div className="presentation">
 				<main className="content">
@@ -35,7 +35,7 @@ function App() {
 				</footer>
 			</div>
 		</div>
-    );
+	)
 }
 
-export default App;
+export default App
