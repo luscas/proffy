@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 
-import { useState } from 'react'
+import { useState, Fragment } from 'react'
 
 import {
 	Layout,
@@ -21,11 +21,16 @@ import {
 	Field,
 	Important,
 	AvailableTimes,
-	Badge
+	Badge,
+	DialogOverlay,
+	DialogBody,
+	DialogContent,
 } from '../styles/register'
 import { Button } from '../styles/button'
 
-import InputMask from 'react-input-mask'
+import { Dialog, Transition } from '@headlessui/react'
+import MaskedInput from 'react-text-mask'
+import createNumberMask from 'text-mask-addons/dist/createNumberMask'
 
 interface IAvailableTime {
 	day: string;
@@ -35,6 +40,21 @@ interface IAvailableTime {
 
 const Register: NextPage = () => {
 	const days = ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado', 'Domingo'];
+
+	const currencyMask = createNumberMask({
+		prefix: 'R$ ',
+		suffix: '',
+		includeThousandsSeparator: true,
+		thousandsSeparatorSymbol: '.',
+		allowDecimal: true,
+		decimalSymbol: ',',
+		decimalLimit: 2,
+		integerLimit: 7,
+		allowNegative: false,
+		allowLeadingZeroes: false,
+	})
+
+	const [showDialog, setShowDialog] = useState<boolean>(false);
 
 	const [availableTimes, setAvailableTimes] = useState<IAvailableTime[]>([{
 		day: 'Sexta-feira',
@@ -61,6 +81,29 @@ const Register: NextPage = () => {
 			<Head>
 				<title>Register - Proffy</title>
 			</Head>
+
+			<Dialog
+				as={DialogOverlay}
+				open={showDialog}
+				onClose={() => setShowDialog(false)}
+			>
+				<DialogBody>
+					<DialogContent>
+						<Title css={{ fontFamily: 'Archivo', fontSize: 24, fontWeight: 600, color: '#000', textAlign: 'center' }}>What is Lorem Ipsum?</Title>
+
+						<Description css={{ color: '#222' }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</Description>
+
+						<Button
+							css={{ marginTop: '24px' }}
+							color={'purple'}
+							size={'md'}
+							onClick={() => setShowDialog(false)}
+						>
+							Got it, thanks!
+						</Button>
+					</DialogContent>
+				</DialogBody>
+			</Dialog>
 
 			<Header>
 				<Navbar>
@@ -105,12 +148,13 @@ const Register: NextPage = () => {
 						<Field required />
 
 						<InputLabel>Link da sua foto <Badge>(comece com http://)</Badge></InputLabel>
-						<Field type={'link'} required />
+						<Field type={'url'} required />
 
 						<InputLabel>Whatsapp <Badge>(somente números)</Badge></InputLabel>
 						<Field
-							as={InputMask}
-							mask={'(99) 9 9999-9999'}
+							inputMode={'tel'}
+							as={MaskedInput}
+							mask={['(', /\d/, /\d/, ')', ' ', /\d/, ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
 							required
 						/>
 
@@ -122,7 +166,7 @@ const Register: NextPage = () => {
 						<Field />
 
 						<InputLabel>Custo da sua hora por aula <Badge>(em R$)</Badge></InputLabel>
-						<Field />
+						<Field as={MaskedInput} inputMode={'text'} mask={currencyMask}  />
 
 						<BoxTitle css={{ marginTop: 64 }}>
 							Horários disponíveis
@@ -173,7 +217,7 @@ const Register: NextPage = () => {
 							Preencha todos os dados
 						</Important>
 
-						<Button size='md'>Salvar cadastro</Button>
+						<Button size='md' onClick={() => setShowDialog(true)}>Salvar cadastro</Button>
 					</BoxFooter>
 				</Box>
 			</Main>
