@@ -8,12 +8,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.3",
     "@stitches/react": "^1.2.6",
-    "@types/react-input-mask": "^3.0.1",
+    "@types/react-text-mask": "^5.4.11",
+    "@types/text-mask-addons": "^3.8.1",
     "next": "12.0.8",
     "react": "17.0.2",
+    "react-currency-masked-input": "^2.5.0",
     "react-dom": "17.0.2",
-    "react-input-mask": "^2.0.4"
+    "react-text-mask": "^5.4.3",
+    "text-mask-addons": "^3.8.0"
   },
   "devDependencies": {
     "@types/node": "17.0.10",

@@ -166,3 +166,34 @@ export const Important = styled('div', {
 		marginRight: 16
 	}
 })
+
+export const DialogOverlay = styled('div', {
+	background: 'rgba(0,0,0,0.5)',
+	position: 'fixed',
+	top: 0,
+	bottom: 0,
+	left: 0,
+	right: 0,
+	zIndex: 10,
+	overflowY: 'auto',
+})
+export const DialogBody = styled('div', {
+	paddingX: 4,
+	textAlign: 'center',
+	minHeight: '100vh',
+	justifyContent: 'center',
+	alignItems: 'center',
+	display: 'flex'
+})
+export const DialogContent = styled('div', {
+	width: '40vw',
+	padding: '1.5rem',
+	my: '2rem',
+	overflow: 'hidden',
+	textAlign: 'left',
+	verticalAlign: 'middle',
+	background: 'white',
+	boxShadow: '0 3px 6px rgba(0,0,0,0.1)',
+	borderRadius: 8,
+	display: 'inline-block'
+})
