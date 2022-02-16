@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 
 import {
 	extraGlobalCss,
@@ -12,10 +13,11 @@ import {
 	Presentation,
 	Footer,
 	ButtonGroup,
-	Button,
 	TotalConnections,
 	Welcome
 } from '../styles/landing'
+
+import { Button } from '../styles/button'
 
 const Home: NextPage = () => {
 	extraGlobalCss();
@@ -54,20 +56,22 @@ const Home: NextPage = () => {
 								Estudar
 							</Button>
 
-							<Button>
-								<svg width={40} height={40} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<g clipPath="url(#clip0_160_2659)">
-										<path d="M19.4444 25.04V32.52M19.4444 25.04H13.8889M19.4444 25.04H25M13.8889 25.04L7.22222 34M13.8889 25.04H9C6.79086 25.04 5 23.2491 5 21.04V10C5 7.79087 6.79086 6 9 6H31C33.2091 6 35 7.79086 35 10V21.04C35 23.2491 33.2091 25.04 31 25.04H25M25 25.04L32.7778 34" stroke="white" strokeWidth={3} strokeLinecap="round" />
-									</g>
-									<defs>
-										<clipPath id="clip0_160_2659">
-											<rect width={40} height={40} rx={8} fill="white" />
-										</clipPath>
-									</defs>
-								</svg>
+							<Link href={'/register'} passHref>
+								<Button>
+									<svg width={40} height={40} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g clipPath="url(#clip0_160_2659)">
+											<path d="M19.4444 25.04V32.52M19.4444 25.04H13.8889M19.4444 25.04H25M13.8889 25.04L7.22222 34M13.8889 25.04H9C6.79086 25.04 5 23.2491 5 21.04V10C5 7.79087 6.79086 6 9 6H31C33.2091 6 35 7.79086 35 10V21.04C35 23.2491 33.2091 25.04 31 25.04H25M25 25.04L32.7778 34" stroke="white" strokeWidth={3} strokeLinecap="round" />
+										</g>
+										<defs>
+											<clipPath id="clip0_160_2659">
+												<rect width={40} height={40} rx={8} fill="white" />
+											</clipPath>
+										</defs>
+									</svg>
 
-								Dar aulas
-							</Button>
+									Dar aulas
+								</Button>
+							</Link>
 						</ButtonGroup>
 
 						<TotalConnections>

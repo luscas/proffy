@@ -21,6 +21,10 @@ export const {
       greenLighten: '#24EF7F',
       greenDarken: '#01ac4e',
       textPurpleBase: '#D4C2FF',
+      title: '#32264D',
+      linesInWhite: '#E6E6F0',
+      label: '#9C98A6',
+      textLight: '#A0A0B2',
     },
   },
   media: {

@@ -1,5 +1,7 @@
 import { globalCss, styled } from '../config/theme'
 
+import { Button } from './button'
+
 export const extraGlobalCss = globalCss({
 	'body': {
 		backgroundColor: '#8257E5',
@@ -93,54 +95,28 @@ export const ButtonGroup = styled('div', {
 	display: 'flex',
 	'@lg': {
 		paddingX: 0
-	}
-})
-
-export const Button = styled('button', {
-	backgroundColor: '$green',
-	maxWidth: 340,
-	fontFamily: 'Archivo',
-	fontSize: 20,
-	fontWeight: 'bold',
-	color: 'white',
-	border: 0,
-	rounded: 'lg',
-	paddingX: 24,
-	paddingY: 30,
-	cursor: 'pointer',
-	transition: 'background 250ms ease-in',
-	flexDirection: 'column',
-	display: 'flex',
-	flex: 1,
-	'& > svg': {
-		marginBottom: 48,
 	},
-	'@lg': {
-		flex: 'none',
-		paddingY: 35,
-		paddingX: 64,
-		fontSize: 24,
-		display: 'block',
+	[`& ${Button}`]: {
+		maxWidth: 340,
+		flexDirection: 'column',
+		display: 'flex',
+		flex: 1,
 		'& > svg': {
-			marginBottom: 0,
-			marginRight: 29,
-			verticalAlign: 'middle',
-		}
-	},
-	'&:hover': {
-		backgroundColor: '$greenDarken',
-	},
-	variants: {
-		color: {
-			purple: {
-				backgroundColor: '$purpleLighten',
-				color: 'white',
-				'&:hover': {
-					backgroundColor: '$purple'
-				}
+			marginBottom: 48,
+		},
+		'@lg': {
+			flex: 'none',
+			paddingY: 35,
+			paddingX: 64,
+			fontSize: 24,
+			display: 'block',
+			'& > svg': {
+				marginBottom: 0,
+				marginRight: 29,
+				verticalAlign: 'middle',
 			}
-		}
-	},
+		},
+	}
 })
 
 export const TotalConnections = styled('div', {
