@@ -24,7 +24,7 @@ export const Container = styled('div', {
 		maxWidth: '70w',
 	},
 	'@lg': {
-    maxWidth: 1120,
+    	maxWidth: 1120,
 		justifyContent: 'center',
   },
 })
@@ -78,7 +78,7 @@ export const Presentation = styled('div', {
 export const Footer = styled('div', {
 	marginTop: 40,
 	justifyContent: 'space-between',
-	paddingX: 45,
+	paddingX: 25,
 	flexDirection: 'column',
 	display: 'flex',
 	paddingBottom: 80,
@@ -99,8 +99,8 @@ export const ButtonGroup = styled('div', {
 	[`& ${Button}`]: {
 		maxWidth: 340,
 		flexDirection: 'column',
-		display: 'flex',
 		flex: 1,
+		display: 'flex',
 		'& > svg': {
 			marginBottom: 48,
 		},
@@ -123,10 +123,15 @@ export const TotalConnections = styled('div', {
 	fontSize: 12,
 	color: '$textPurpleBase',
 	alignItems: 'center',
-	flexGrow: 1,
-	gap: 12,
-	display: 'flex',
 	marginTop: 40,
+	'& > b': {
+		fontWeight: 600,
+		color: 'white',
+	},
+	'& > svg': {
+		verticalAlign: 'middle',
+		marginLeft: 8,
+	},
 	'@lg': {
 		justifyContent: 'flex-end',
 		marginTop: 0,
@@ -138,7 +143,7 @@ export const Welcome = styled('div', {
 	color: 'white',
 	display: 'block',
 	marginTop: 90,
-	paddingX: 45,
+	paddingX: 25,
 	'@lg': {
 		paddingX: 0,
 		display: 'none',

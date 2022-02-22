@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "name": "Watch Dev",
+            "program": "yarn",
+            "args": ["dev"], // optional
+        }
+    ]
+}

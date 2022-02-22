@@ -8,7 +8,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@headlessui/react": "^1.4.3",
     "@stitches/react": "^1.2.6",
     "@types/react-text-mask": "^5.4.11",
     "@types/text-mask-addons": "^3.8.1",
