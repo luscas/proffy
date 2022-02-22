@@ -7,7 +7,7 @@ export const Button = styled('button', {
 	fontWeight: 'bold',
 	color: 'white',
 	border: 0,
-	rounded: 'lg',
+	rounded: 8,
 	paddingX: 24,
 	paddingY: 30,
 	cursor: 'pointer',
@@ -16,7 +16,8 @@ export const Button = styled('button', {
 		backgroundColor: '$greenDarken',
 	},
 	'& svg': {
-		marginRight: 12,
+		verticalAlign: 'middle',
+		// marginRight: 12,
 	},
 	variants: {
 		type: {

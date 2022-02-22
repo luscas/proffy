@@ -2,16 +2,11 @@ import { createStitches } from '@stitches/react'
 
 export const {
   styled,
-  css,
   globalCss,
-  keyframes,
-  getCssText,
-  theme,
-  createTheme,
-  config,
 } = createStitches({
   theme: {
     colors: {
+      textBase: '#6A6180',
       gray: '#F0F0F7',
       primary: '#8257E5',
       purple: '#774DD6',
@@ -25,9 +20,11 @@ export const {
       linesInWhite: '#E6E6F0',
       label: '#9C98A6',
       textLight: '#A0A0B2',
+      complements: '#9C98A6'
     },
   },
   media: {
+    xs: '(min-width: 375px)',
     sm: '(min-width: 640px)',
     md: '(min-width: 768px)',
     lg: '(min-width: 1024px)',
@@ -36,8 +33,9 @@ export const {
   },
   utils: {
     marginX: (value : any) => ({ marginLeft: value, marginRight: value }),
+    marginY: (value : any) => ({ marginTop: value, marginBottom: value }),
     paddingY: (value : any) => ({ paddingTop: value, paddingBottom: value }),
     paddingX: (value : any) => ({ paddingLeft: value, paddingRight: value }),
-    rounded: (value : string) => ({ borderRadius: value == 'lg' ? 6 : 4, }),
+    rounded: (value : number) => ({ borderRadius: value }),
   },
 })

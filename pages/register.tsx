@@ -1,8 +1,7 @@
 import type { NextPage } from 'next'
+import { useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-
-import { useState } from 'react'
 
 import {
 	Layout,
@@ -12,17 +11,16 @@ import {
 	Jumbotron,
 	Title,
 	Description,
-	Main,
-	Box,
-	BoxTitle,
-	BoxBody,
 	BoxFooter,
 	InputLabel,
 	Field,
 	Important,
-	AvailableTimes,
-	Badge,
-} from '../styles/register'
+	Box,
+	BoxTitle,
+	BoxBody
+} from '../styles/global'
+
+import { Main, AvailableTimes, Badge } from '../styles/register'
 import { Button } from '../styles/button'
 
 import MaskedInput from 'react-text-mask'
@@ -183,7 +181,9 @@ const Register: NextPage = () => {
 							Preencha todos os dados
 						</Important>
 
-						<Button size='md'>Salvar cadastro</Button>
+						<Link href={'/teachers'} passHref>
+							<Button size='md'>Salvar cadastro</Button>
+						</Link>
 					</BoxFooter>
 				</Box>
 			</Main>
